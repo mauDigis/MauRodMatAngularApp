@@ -1,0 +1,43 @@
+
+<div class="row mt-3">
+  <h1 class="mt-2 display-3" id="tableLabel">Calculadora con Typescript</h1>
+  <div class="col-md-6 mt-4">
+    <div class="input-group mb-3 d-flex justify-content-center align-items-center">
+      <span class="input-group-text" id="inputGroup-sizing-default">Numero 1</span>
+      <!-- [(ngModel)] Crearán el two-way binding. Esto significa que cuando el usuario escribe en el campo,
+           el valor de la propiedad se actualiza automáticamente, y viceversa. -->
+      <input type="number" class="form-control" [(ngModel)]="Numero1">
+    </div>
+  </div>
+  <div class="col-md-6 mt-4">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Numero 2</span>
+      <!-- [(ngModel)] Crearán el two-way binding. Esto significa que cuando el usuario escribe en el campo,
+            el valor de la propiedad se actualiza automáticamente, y viceversa. -->
+      <input type="number" class="form-control" [(ngModel)]="Numero2">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!--Muestro dinamicamente el resultado de la operacion-->
+      <label>Resultado: <span class="input-group-text d-inline-block">{{ Resultado }}</span></label>
+    </div>
+  </div>
+</div>
+<div class="row mt-4 justify-content-center">
+  <div class="col-md-2 mb-2">
+    <!--Manda a llamar mi funcion (click)="Suma()"-->
+    <button type="button" class="btn btn-outline-primary w-100" (click)="Suma()">Sumar</button>
+  </div>
+  <div class="col-md-2 mb-2">
+    <button type="button" class="btn btn-outline-warning w-100" (click)="Resta()">Restar</button>
+  </div>
+  <div class="col-md-2 mb-2">
+    <button type="button" class="btn btn-outline-success w-100" (click)="Multiplicacion()">Multiplicar</button>
+  </div>
+  <div class="col-md-2 mb-2">
+    <button type="button" class="btn btn-outline-danger w-100" (click)="Division()">Dividir</button>
+  </div>
+</div>
+
+

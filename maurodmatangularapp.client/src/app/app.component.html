@@ -1,28 +1,16 @@
 <div class="row">
   <app-header></app-header> <!--Selector de mi componente-->
 </div>
-<div class="row" id="page-container">
-  <!--<p>This component demonstrates fetching data from the server.</p>
-  <p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>-->
-  <!--<table *ngIf="forecasts">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Temp. (C)</th>
-        <th>Temp. (F)</th>
-        <th>Summary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let forecast of forecasts">
-        <td>{{ forecast.date }}</td>
-        <td>{{ forecast.temperatureC }}</td>
-        <td>{{ forecast.temperatureF }}</td>
-        <td>{{ forecast.summary }}</td>
-      </tr>
-    </tbody>
-  </table>-->
-  <app-calculadora></app-calculadora> <!--Selector de mi componente-->
+<div class="row">
+
+  <!--<app-home></app-home>--> <!--Selector de mi componente-->
+
+  <!--Actúa como un marcador de posición que Angular llena dinámicamente según el estado actual del enrutador.
+      Angular insertará dinámicamente el componente correspondiente a la URL actual -->
+  <router-outlet></router-outlet>
+
+  <!--<app-calculadora></app-calculadora>-->
+
 </div>
 <div class="row">
   <app-footer></app-footer>

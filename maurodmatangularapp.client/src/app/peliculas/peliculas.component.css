@@ -1,0 +1,5 @@
+.container {
+  display: flex; /* Habilita Flexbox */
+  flex-direction: column; /* Organiza los elementos en una columna */
+  min-height: 100vh; /* La altura mínima es el 100% del alto de la ventana */
+}

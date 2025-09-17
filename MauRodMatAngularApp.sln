@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauRodMatAngularApp.Server", "MauRodMatAngularApp.Server\MauRodMatAngularApp.Server.csproj", "{4FB5154A-EF2C-4EF5-BAB0-787461957315}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauRodMatAngularApp.Server", "MauRodMatAngularApp.Server\MauRodMatAngularApp.Server.csproj", "{4FB5154A-EF2C-4EF5-BAB0-787461957315}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "maurodmatangularapp.client", "maurodmatangularapp.client\maurodmatangularapp.client.esproj", "{771D4B8C-4B57-42D7-A957-0E2A1B25B9D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{387C04F8-6A2D-46DA-8D9C-3CC6CEB881D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ML", "ML\ML.csproj", "{5D883433-9125-4F13-8B74-FF6EF22E317B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DL", "DL\DL.csproj", "{BFC48084-B1A3-4E18-B43F-424C4AA45891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,18 @@ Global
 		{771D4B8C-4B57-42D7-A957-0E2A1B25B9D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{771D4B8C-4B57-42D7-A957-0E2A1B25B9D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{771D4B8C-4B57-42D7-A957-0E2A1B25B9D1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{387C04F8-6A2D-46DA-8D9C-3CC6CEB881D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387C04F8-6A2D-46DA-8D9C-3CC6CEB881D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387C04F8-6A2D-46DA-8D9C-3CC6CEB881D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387C04F8-6A2D-46DA-8D9C-3CC6CEB881D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D883433-9125-4F13-8B74-FF6EF22E317B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D883433-9125-4F13-8B74-FF6EF22E317B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D883433-9125-4F13-8B74-FF6EF22E317B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D883433-9125-4F13-8B74-FF6EF22E317B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFC48084-B1A3-4E18-B43F-424C4AA45891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC48084-B1A3-4E18-B43F-424C4AA45891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC48084-B1A3-4E18-B43F-424C4AA45891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC48084-B1A3-4E18-B43F-424C4AA45891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

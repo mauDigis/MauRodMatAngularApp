@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <h2 class="display-3 mt-2">Formulario de Usuario</h2>
+    <!-- [(ngModel)] Crearán el two-way binding. Esto significa que cuando el usuario escribe en el campo,
+      el valor de la propiedad se actualiza automáticamente, y viceversa. -->
+    <div class="row mt-4">
+      <div>
+        <input type="hidden" [(ngModel)]="usuario.idUsuario">
+      </div>
+      <div class="col-md-3">
+        <label for="exampleFormControlInput0" class="form-label">UserName</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.userName" id="exampleFormControlInput0" placeholder="Nombre de Usuario">
+      </div>
+      <div class="col-md-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.nombre" id="exampleFormControlInput1" placeholder="Nombre o Nombres">
+      </div>
+      <div class="col-md-3">
+        <label for="exampleFormControlInput2" class="form-label">Apellido Paterno</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.apellidoPaterno" id="exampleFormControlInput2" placeholder="Apellido Paterno">
+      </div>
+      <div class="col-md-3">
+        <label for="exampleFormControlInput3" class="form-label">Apellido Materno</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.apellidoMaterno" id="exampleFormControlInput3" placeholder="Apellido Materno">
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <label for="exampleFormControlInput4" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" [(ngModel)]="usuario.email" id="exampleFormControlInput4" placeholder="name@example.com">
+      </div>
+      <div class="col-md-4">
+        <label for="inputPassword5" class="form-label">Contraseña</label>
+        <input type="password" id="inputPassword5" class="form-control" [(ngModel)]="usuario.passwrd" aria-describedby="passwordHelpBlock">
+        <div id="passwordHelpBlock" class="form-text">
+          Tu contraseña debe ser una longitud de 8-20 caracters, contener letras, numeros, caracteres especiales, no debe contener espacios ni emojis.
+        </div>
+      </div>
+      <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+        <label for="" class="form-label">Genero</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sexo" value="M " [(ngModel)]="usuario.sexo" id="SexoM">
+          <label class="form-check-label" for="Masculino">Masculino</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="sexo" value="F " [(ngModel)]="usuario.sexo" id="SexoF">
+          <label class="form-check-label" for="Femenino">Femenino</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <label for="exampleFormControlInput6" class="form-label">Telefono</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.telefono" id="exampleFormControlInput6" placeholder="Telefono">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput7" class="form-label">Celular</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.celular" id="exampleFormControlInput7" placeholder="Celular">
+      </div>
+      <div class="col-md-4">
+        <label for="exampleFormControlInput8" class="form-label">Fecha de Nacimiento</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.fechaNacimiento" id="exampleFormControlInput8" aria-describedby="fechaHelpBlock" placeholder="Fecha de Nacimiento">
+        <div id="fechaHelpBlock" class="form-text">
+          El formato de fecha es dd-mm-yyyy (01-12-2003)
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <label for="exampleFormControlInput9" class="form-label">Curp</label>
+        <input type="text" maxlength="18" class="form-control" [(ngModel)]="usuario.curp" id="exampleFormControlInput9" placeholder="Curp">
+      </div>
+      <div class="col-md-6">
+        <label for="exampleFormControlInput10" class="form-label">Rol</label>
+        <input type="text" maxlength="1" class="form-control" [(ngModel)]="usuario.rol.idRol" id="exampleFormControlInput10" placeholder="Rol de Usuario">
+
+        <!--<select class="form-select text-center" [(ngModel)]="usuario.rol.idRol">
+          <option selected>Selecciona un Rol</option>
+          <option value="1">Ceo</option>
+          <option value="2">Especialista</option>
+          <option value="3">Gerente</option>
+          <option value="4">Empleado</option>
+          <option value="5">Contador</option>
+        </select>-->
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-6 d-grid">
+        <!--(click)="GuardarUsuario()" Manda a llamar mi metodo de mi ts-->
+        <button type="submit" class="btn btn-outline-success" (click)="GuardarUsuario()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 10.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707z" />
+          </svg> Guardar
+        </button>
+      </div>
+      <div class="col-md-6 d-grid">
+        <button type="button" class="btn btn-outline-danger" routerLink="/getallusers">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+          </svg> Regresar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,9 @@ import { HomeComponent } from './home/home.component';
 import { RandomUserComponent } from './random-user/random-user.component';
 import { PeliculasComponent } from './peliculas/peliculas.component';
 import { RandomUserApiInterfacesComponent } from './random-user-api-interfaces/random-user-api-interfaces.component';
-import { FavoritosComponent } from '../app/peliculas-favoritas/peliculas-favoritas.component'
+import { FavoritosComponent } from '../app/peliculas-favoritas/peliculas-favoritas.component';
+import { GetAllUserComponent } from './get-all-user/get-all-user.component';
+import { UsuarioFormComponent } from './usuario-form/usuario-form.component'
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { FavoritosComponent } from '../app/peliculas-favoritas/peliculas-favorit
     RandomUserComponent,
     PeliculasComponent,
     RandomUserApiInterfacesComponent,
-    FavoritosComponent
+    FavoritosComponent,
+    GetAllUserComponent,
+    UsuarioFormComponent
   ],
 
   //Se importan los componentes que SI SON INDEPENDIENTES 

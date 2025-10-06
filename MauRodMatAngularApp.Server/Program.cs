@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
+//Identificador para conocer mi CORS
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,20 +25,19 @@ builder.Services.AddScoped<BL.Usuario>();
 //sobre cómo un documento o página web alojada en un origen (o dominio) puede interactuar con otro origen.
 
 //Configuracion CORS
+
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(
-        builder =>
-        {
-            builder.WithOrigins(
-                //Direcciones de mi API
-                "https://apirequest.io",
-                "https://resttesttest.com"
-                )
-            //.WithMethods("PUT", "DELETE", "GET");
-            .AllowAnyMethod()
-            .AllowAnyHeader();
-        }); 
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins(
+                              //Dominio desde el que se harán las peticiones, no el dominio de las APIs.
+                              "https://localhost:4200")
+                          //.WithMethods("PUT", "DELETE", "GET");
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                      });
 });
 
 //Construye la aplicación
@@ -51,8 +53,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 //Usar CORS
-app.UseCors();
+app.UseCors(MyAllowSpecificOrigins);
+
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

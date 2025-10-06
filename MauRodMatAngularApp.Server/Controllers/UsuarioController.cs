@@ -24,7 +24,7 @@ namespace MauRodMatAngularApp.Server.Controllers
 
             if (resultGetAll.Correct == true)
             {
-                return StatusCode(200, resultGetAll.Objects);
+                return StatusCode(200, resultGetAll);
             }
             else
             {

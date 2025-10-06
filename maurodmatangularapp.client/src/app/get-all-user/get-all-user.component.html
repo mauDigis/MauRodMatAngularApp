@@ -1,0 +1,76 @@
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center display-3">Usuarios</h1>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="">
+      <a class="btn btn-outline-success d-flex justify-content-center" routerLink="/addUser">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="30" fill="currentColor" class="bi bi-person-plus me-2" viewBox="0 0 16 16">
+          <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+          <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+        </svg>
+        Agregar Usuario
+      </a>
+    </div>
+    <div *ngFor="let usuario of listaUsuarios" class="col-md-3 mb-4">
+      <div *ngIf="usuario">
+        <div class="card mt-3" style="width: 18rem;">
+          <img src="../../assets/images/userIcon.jpg" class="card-img-top" alt="Imagen del Usuario">
+          <div class="card-body">
+            <p class=""> IdUsuario: {{ usuario.idUsuario }} </p>
+            <p class=""> Nombre Completo: {{ usuario.nombre }} {{ usuario.apellidoPaterno }} {{ usuario.apellidoMaterno }} </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <p class=""> Nombre de Usuario: {{ usuario.userName }} </p>
+              <p class=""> Correo Electrónico: {{ usuario.email }} </p>
+            </li>
+            <li class="list-group-item">
+              <p class=""> Genero: {{ usuario.sexo }} </p>
+              <p class=""> Teléfono: {{ usuario.telefono }} </p>
+              <p class=""> Celular: {{ usuario.celular }} </p>
+            </li>
+            <li class="list-group-item">
+              <p class=""> Fecha de Nacimiento: {{ usuario.fechaNacimiento }} </p>
+              <p class=""> Curp: {{ usuario.curp }} </p>
+              <p class=""> IdRol: {{ usuario.rol.idRol }} </p>
+            </li>
+          </ul>
+          <div class="">
+            <!-- Mando mi Id directamente desde la URL -->
+            <button type="button" class="btn btn-warning m-2" [routerLink]="['/editUser', usuario.idUsuario]">Editar</button>
+
+            <!--<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Eliminar
+            </button>-->
+            <button class="btn btn-primary m-2" (click)="delete(usuario.idUsuario)">eliminar</button>
+          </div>
+        </div>
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminación de un Usuario</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>¿Estás seguro de querer eliminar al usuario: {{ usuario.nombre }} {{ usuario.apellidoPaterno }} {{ usuario.apellidoMaterno }}?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                <button (click)="delete(usuario.idUsuario)" class="btn btn-primary">Aceptar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--Div *ngIf-->
+    </div><!--Div *ngFor-->
+
+  </div><!--Div row-->
+</div><!--Div container-->
+<!--Modal Eliminar Usuario-->
+<!-- Button trigger modal -->
+<!-- Modal -->
+

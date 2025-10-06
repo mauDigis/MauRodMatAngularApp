@@ -19,20 +19,38 @@ namespace BL
             try
             {
                 //Instancia del DL (_context)
-                List<DL.Usuario> ListaUsuarios = (from UsuarioDB in _context.Usuarios
-                                                  select UsuarioDB).ToList();
+                var ListaUsuarios = (from UsuarioDB in _context.Usuarios
+                                                  join roldb in _context.Rols on UsuarioDB.IdRol equals roldb.IdRol
+                                                  select new
+                                                  {
+                                                      UsuarioDB.IdUsuario,
+                                                      UsuarioDB.UserName,
+                                                      NombreUsuario = UsuarioDB.Nombre,
+                                                      UsuarioDB.ApellidoPaterno,
+                                                      UsuarioDB.ApellidoMaterno,
+                                                      UsuarioDB.Email,
+                                                      UsuarioDB.Passwrd,
+                                                      UsuarioDB.Sexo,
+                                                      UsuarioDB.Telefono,
+                                                      UsuarioDB.Celular,
+                                                      UsuarioDB.FechaNacimiento,
+                                                      UsuarioDB.Curp,
+                                                      roldb.IdRol,
+                                                      NombreRol = roldb.Nombre,
+                                                      roldb.Usuarios,
+                                                  }).ToList();
 
                 if (ListaUsuarios.Count > 0)
                 {
                     resultGetAll.Objects = new List<object>();
 
-                    foreach (DL.Usuario user in ListaUsuarios)
+                    foreach (var user in ListaUsuarios)
                     {
                         ML.Usuario usuario = new ML.Usuario();
 
                         usuario.IdUsuario = user.IdUsuario;
                         usuario.UserName = user.UserName;
-                        usuario.Nombre = user.Nombre;
+                        usuario.Nombre = user.NombreUsuario;
                         usuario.ApellidoPaterno = user.ApellidoPaterno;
                         usuario.ApellidoMaterno = user.ApellidoMaterno;
                         usuario.Email = user.Email;
@@ -44,7 +62,8 @@ namespace BL
                         usuario.CURP = user.Curp;
 
                         usuario.Rol = new ML.Rol();
-                        usuario.Rol.IdRol = user.IdRol.Value;
+                        usuario.Rol.IdRol = user.IdRol;
+                        usuario.Rol.Nombre = user.NombreRol;
 
                         resultGetAll.Objects.Add(usuario);
                     }
@@ -74,7 +93,26 @@ namespace BL
                 object Usuario = (from UsuarioBD in _context.Usuarios
                                   join RolBD in _context.Rols on UsuarioBD.IdRol equals RolBD.IdRol //recupero los roles de mi usuario
                                   where UsuarioBD.IdUsuario == IdUsuario
-                                  select UsuarioBD).SingleOrDefault();
+                                  select new
+                                  {
+                                      UsuarioBD.IdUsuario,
+                                      UsuarioBD.UserName,
+                                      UsuarioBD.Nombre,
+                                      UsuarioBD.ApellidoPaterno,
+                                      UsuarioBD.ApellidoMaterno,
+                                      UsuarioBD.Email,
+                                      UsuarioBD.Passwrd,
+                                      UsuarioBD.Sexo,
+                                      UsuarioBD.Telefono,
+                                      UsuarioBD.Celular,
+                                      UsuarioBD.FechaNacimiento,
+                                      UsuarioBD.Curp,
+                                      Rol = new
+                                      {
+                                          IdRol = RolBD.IdRol,
+                                          Nombre = RolBD.Nombre,
+                                      }
+                                  }).SingleOrDefault();
 
                 if (Usuario != null)
                 {

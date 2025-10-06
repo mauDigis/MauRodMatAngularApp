@@ -6,6 +6,8 @@ import { RandomUserComponent } from '../app/random-user/random-user.component'
 import { RandomUserApiInterfacesComponent } from '../app/random-user-api-interfaces/random-user-api-interfaces.component'
 import { PeliculasComponent } from '../app/peliculas/peliculas.component'
 import { FavoritosComponent } from '../app/peliculas-favoritas/peliculas-favoritas.component'
+import { GetAllUserComponent } from '../app/get-all-user/get-all-user.component'
+import { UsuarioFormComponent } from '../app/usuario-form/usuario-form.component'
 
 const routes: Routes = [
 
@@ -15,6 +17,9 @@ const routes: Routes = [
   { path: "randomuserinterface", component: RandomUserApiInterfacesComponent },
   { path: "peliculas", component: PeliculasComponent },
   { path: "peliculasfav", component: FavoritosComponent },
+  { path: "getallusers", component: GetAllUserComponent },
+  { path: "addUser", component: UsuarioFormComponent },
+  { path: 'editUser/:idUsuario', component: UsuarioFormComponent },
   { path: "**", redirectTo: "" } //Cualquier ruta no registrada redirecciona a home
 
 ];
